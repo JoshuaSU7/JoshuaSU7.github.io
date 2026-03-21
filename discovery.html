@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Discovery Project | Joshua Su</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* ── Image gallery grid ── */
+			.img-gallery {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+				gap: 1.2em;
+				margin: 1.5em 0 2em 0;
+			}
+			.img-gallery figure {
+				margin: 0;
+				background: rgba(0,0,0,0.3);
+				border: 1px solid rgba(255,255,255,0.08);
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			.img-gallery figure img {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.3s ease;
+			}
+			.img-gallery figure:hover img {
+				transform: scale(1.04);
+			}
+			.img-gallery figcaption {
+				padding: 0.7em 1em;
+				font-size: 0.85em;
+				opacity: 0.7;
+				line-height: 1.4;
+			}
+
+			/* ── Single wide image ── */
+			.img-wide {
+				width: 100%;
+				border-radius: 8px;
+				border: 1px solid rgba(255,255,255,0.08);
+				object-fit: cover;
+				max-height: 420px;
+				margin: 1em 0 1.5em 0;
+			}
+
+			/* ── Image placeholder (before you add real images) ── */
+			.img-placeholder {
+				width: 100%;
+				height: 200px;
+				background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+				border: 2px dashed rgba(255,255,255,0.15);
+				border-radius: 8px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				color: rgba(255,255,255,0.3);
+				font-size: 0.85em;
+				gap: 0.5em;
+			}
+			.img-placeholder .icon { font-size: 2em; }
+
+			/* ── Section tag/badge ── */
+			.section-badge {
+				display: inline-block;
+				background: rgba(255,255,255,0.1);
+				border: 1px solid rgba(255,255,255,0.2);
+				border-radius: 4px;
+				padding: 0.2em 0.8em;
+				font-size: 0.75em;
+				text-transform: uppercase;
+				letter-spacing: 0.12em;
+				margin-bottom: 0.6em;
+			}
+
+			/* ── Key findings cards ── */
+			.findings-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 1em;
+				margin: 1.5em 0;
+			}
+			.finding-card {
+				background: rgba(255,255,255,0.04);
+				border: 1px solid rgba(255,255,255,0.1);
+				border-radius: 8px;
+				padding: 1.4em;
+			}
+			.finding-card .number {
+				font-size: 2em;
+				font-weight: 700;
+				line-height: 1;
+				margin-bottom: 0.2em;
+			}
+			.finding-card p { margin: 0; font-size: 0.9em; opacity: 0.75; }
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1><a href="index.html">Joshua Su</a></h1>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="introduction.html">About Me</a></li>
+									<li><a href="resume.html">Resume</a></li>
+									<li><a href="discovery.html">Discovery Project</a></li>
+									<li><a href="projects.html">Personal Projects</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Main -->
+			<article id="main">
+				<header>
+					<h2>Discovery Project</h2>
+					<p>Research, exploration, and what I found along the way.</p>
+				</header>
+				<section class="wrapper style5">
+					<div class="inner">
+
+						<!-- Project Overview -->
+						<span class="section-badge">Overview</span>
+						<h3>[Your Discovery Project Title]</h3>
+						<p>
+							<!-- Describe your discovery project in a sentence or two -->
+							This project explores [topic/question] through [method — research, experimentation, fieldwork, etc.].
+							The goal was to [objective] and gain a deeper understanding of [subject].
+						</p>
+
+						<!--
+							WIDE HERO IMAGE
+							Replace the placeholder below with:
+							<img class="img-wide" src="images/discovery-hero.jpg" alt="Project overview" />
+						-->
+						<div class="img-placeholder" style="height:320px; margin: 1em 0 2em 0;">
+							<span class="icon solid fa-image"></span>
+							<span>Add a hero image: &lt;img class="img-wide" src="images/discovery-hero.jpg" /&gt;</span>
+						</div>
+
+						<hr />
+
+						<!-- Background / Motivation -->
+						<span class="section-badge">Background</span>
+						<h3>Why This Topic?</h3>
+						<p>
+							[Explain what drew you to this topic. What problem or question were you trying to answer?
+							What prior knowledge or gap in understanding motivated the inquiry?]
+						</p>
+						<p>
+							[Add context — historical background, existing research, or personal experience that makes
+							this project relevant and interesting.]
+						</p>
+
+						<hr />
+
+						<!-- Process / Methods -->
+						<span class="section-badge">Process</span>
+						<h3>How I Explored It</h3>
+						<p>
+							[Describe your methodology. Did you conduct interviews, run experiments, analyze data,
+							build something, or review literature? Walk the reader through your process step by step.]
+						</p>
+
+						<!-- Process Images -->
+						<div class="img-gallery">
+							<figure>
+								<!--
+									Replace each placeholder div with an actual image, e.g.:
+									<img src="images/discovery-process-1.jpg" alt="Step 1" />
+								-->
+								<div class="img-placeholder">
+									<span class="icon solid fa-image"></span>
+									<span>Process photo 1</span>
+								</div>
+								<figcaption>[Caption: describe what's happening in this photo]</figcaption>
+							</figure>
+							<figure>
+								<div class="img-placeholder">
+									<span class="icon solid fa-image"></span>
+									<span>Process photo 2</span>
+								</div>
+								<figcaption>[Caption: describe what's happening in this photo]</figcaption>
+							</figure>
+							<figure>
+								<div class="img-placeholder">
+									<span class="icon solid fa-image"></span>
+									<span>Process photo 3</span>
+								</div>
+								<figcaption>[Caption: describe what's happening in this photo]</figcaption>
+							</figure>
+						</div>
+
+						<hr />
+
+						<!-- Key Findings -->
+						<span class="section-badge">Findings</span>
+						<h3>Key Findings</h3>
+						<p>[Summarize the most important things you discovered or concluded from your project.]</p>
+
+						<!-- Stats / highlight cards — fill in your own numbers/insights -->
+						<div class="findings-grid">
+							<div class="finding-card">
+								<div class="number">[#]</div>
+								<p>[Key metric or finding label]</p>
+							</div>
+							<div class="finding-card">
+								<div class="number">[#]</div>
+								<p>[Key metric or finding label]</p>
+							</div>
+							<div class="finding-card">
+								<div class="number">[#]</div>
+								<p>[Key metric or finding label]</p>
+							</div>
+							<div class="finding-card">
+								<div class="number">[#]</div>
+								<p>[Key metric or finding label]</p>
+							</div>
+						</div>
+
+						<!-- Findings Images -->
+						<div class="img-gallery">
+							<figure>
+								<div class="img-placeholder">
+									<span class="icon solid fa-image"></span>
+									<span>Results / data chart 1</span>
+								</div>
+								<figcaption>[Caption: chart, graph, or visual of your findings]</figcaption>
+							</figure>
+							<figure>
+								<div class="img-placeholder">
+									<span class="icon solid fa-image"></span>
+									<span>Results / data chart 2</span>
+								</div>
+								<figcaption>[Caption: chart, graph, or visual of your findings]</figcaption>
+							</figure>
+						</div>
+
+						<hr />
+
+						<!-- Reflection -->
+						<span class="section-badge">Reflection</span>
+						<h3>What I Learned</h3>
+						<p>
+							[Reflect on your experience. What went well? What surprised you? What would you do
+							differently? How has this project changed your understanding or shaped your future goals?]
+						</p>
+
+						<!-- Links / Resources -->
+						<hr />
+						<h3>Resources &amp; Links</h3>
+						<ul>
+							<li><a href="#">[Link to report / paper / presentation]</a></li>
+							<li><a href="#">[Link to data or code repository]</a></li>
+							<li><a href="#">[Any additional relevant resources]</a></li>
+						</ul>
+
+					</div>
+				</section>
+			</article>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://github.com/JoshuaSU7" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="mailto:your.email@example.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Joshua Su</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
