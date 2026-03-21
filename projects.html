@@ -300,10 +300,22 @@
 								<span class="section-badge">Methodology</span>
 								<h4>Initial Steps &amp; Approach</h4>
 								<p>
-									[Describe how you started the project — hardware setup, electrode placement, initial signal acquisition, etc.]
+									My team and I began by integrating eye tracking and blink detection only on the vertical axis. 
+									We first determined the optimal electrode placement, which was just above and below the eye. We acquired and filtered 
+									the EOG signal using an arduino, biosignal amplifier, and a bandpass filter between 0.1hz and 30hz. We then researched
+									the relationship between the EOG signal magnitude and gaze angle, and found a linear relationship (i.e., the more you move your eyes, the higher the peak is in the signal).
+									Because of this, we could easily run a linear regression on the incoming EOG signal peaks to control cursor movement. 
+									Additionally, we found that the peak of the EOG signal for blinks were significantly higher than those for eye movements.
+									Because of this, we could easily apply thresholding to the incoming EOG signal to determing whether it is a blink or eye movement, and
+									then use blinks to control clicks. 
 								</p>
 								<p>
-									[Explain the processing pipeline — how raw EOG signals are filtered, thresholded, and translated into cursor movements or blink events.]
+									Due to individual physiological differences, each user will have slightly different eye movement vs. signal magnitude slope, or blink vs. eye movement thresholds.
+									Because of this, we created calibration programs to tune linear regression models and thresholds. For eye movement calibration, we 
+									have users play an eye-tracking game where they press a button on the keyboard to move the next point and follow it with their eyes.
+									The software records the EOG signal in the background during the game and establishes the linear relationship between EOG signal magnitude
+									and the distance between the points once the game is finished. For blink calibration, we simply ask the users to blink several times, while the 
+									software records the EOG signal in the background and establishes the average EOG signal peak value once the game is finished.
 								</p>
 								<!-- Add images of your setup, circuit, or signal traces here -->
 								<div class="inline-gallery">
@@ -328,10 +340,17 @@
 								<span class="section-badge">Results &amp; Progress</span>
 								<h4>Where It Stands &amp; Where It's Going</h4>
 								<p>
-									[Describe current results — accuracy, latency, reliability of eye tracking and blink detection so far.]
+									Our current results show reliable blink detection, whereas reliable eye-tracking is more challenging. We have recently updated
+									our algorithm for eye tracking, it is as follows: 1) when the signal is flat (i.e., no eye movement) establish a baseline average value,
+									and an upper bound and lower bound, both symmetrical about the baseline. 2) When the signal is rising, and breaks through the upper bound,
+									watch for where the signal changes direction (inflection point) from rising to decreasing. This point is the peak value of the signal. 
+									3) Compare this peak value to the baseline (subtract the two), and use the linear regression to determine the corresponding movement 
+									of the mouse. 
 								</p>
 								<p>
-									[Outline next steps — improvements planned, features to add, or challenges still to solve.]
+									Next steps include fine tuning certain parameters in the real-time algorithm, and implementing it for the horizontal axis as well. 
+									Additionally, collaboration will increase between the mechanical subteam, who are designing a wearable glasses form factor for the electrodes,
+									and electrical subteams, who are designing a custom PCB with enhanced amplification and signal filtering. 
 								</p>
 								<!-- Add result images/demos here -->
 								<div class="inline-gallery">
@@ -363,10 +382,9 @@
 								</div>
 								<div class="block-title">
 									<div class="tag-list">
-										<span class="tag">[Language]</span>
-										<span class="tag">[Tool/Framework]</span>
+										<span class="tag">Cadence Virtuoso</span>
 									</div>
-									<h3 style="margin: 0.6em 0 0.5em 0;">[Project 2 Title]</h3>
+									<h3 style="margin: 0.6em 0 0.5em 0;">Designing and Implementing a Feedback Divider for a Phase-Locked-Loop</h3>
 									<div class="project-links">
 										<a href="#" class="button primary icon brands fa-github">View on GitHub</a>
 										<a href="#" class="button icon solid fa-external-link-alt">Live Demo</a>
@@ -378,11 +396,14 @@
 
 								<span class="section-badge">Overview</span>
 								<h4>What Is This Project?</h4>
-								<p>[Describe what this project does and why you built it.]</p>
+								<p>As part of the Analog Mixed-Signal design team in SiliconJackets, we aim to create modules for ASICs,
+								one of them being a Phase-Locked-Loop (PLL). PLL's are very important for clock multiplication, signal synchronization
+								and reducing noise from a clock signal. My project is designing the feedback divider component of the PLL, which will
+								later be implemented with the other components that my teammates are designing to create the full PLL. </p>
 
 								<span class="section-badge">Results &amp; Progress</span>
 								<h4>Where It Stands &amp; Where It's Going</h4>
-								<p>[Describe current state, what's working, and what's next.]</p>
+								<p>Familiarizing myself with the dual modulus prescaler, working on implementing it in Cadence Virtuoso.</p>
 								<div class="inline-gallery">
 									<figure>
 										<div class="project-img-placeholder">
@@ -418,12 +439,11 @@
 								</div>
 								<div class="block-title">
 									<div class="tag-list">
-										<span class="tag">[Language]</span>
-										<span class="tag">[Tool/Framework]</span>
+										<span class="tag">PCB Design</span>
+										<span class="tag">KiCAD</span>
 									</div>
-									<h3 style="margin: 0.6em 0 0.5em 0;">[Project 3 Title]</h3>
+									<h3 style="margin: 0.6em 0 0.5em 0;">Heated Racquet Handle/Grip for Cold Weather Outdoor Play</h3>
 									<div class="project-links">
-										<a href="#" class="button primary icon brands fa-github">View on GitHub</a>
 										<a href="#" class="button icon solid fa-external-link-alt">Live Demo</a>
 									</div>
 								</div>
@@ -433,11 +453,24 @@
 
 								<span class="section-badge">Overview</span>
 								<h4>What Is This Project?</h4>
-								<p>[Describe what this project does and why you built it.]</p>
+								<p>As an avid tennis player, one of the biggest challenges for recreational players is playing outdoors in the winter. It is nearly impossible to play well
+								when your hands are very cold as you lose feeling of connection to the ball, and the racquet will slip out of your hands 
+								quite often. Simply wearing gloves is not feasible, as it is not possible to grip the racquet tightly and correctly, and
+								disposable hand warmers can only warm your hands in between points, and their heating effects quickly dissipate. An entirely new handle could be designed with integrated heating
+								capabilities, but the racquet market is dominated by a select few companies, who intentionally make customization of the frame and handle extremely difficult and labor intensive.
+								I have created a first-of-its-kind electric modular racquet grip heating system that provides continuous heat to the users hands. My system works with any modern tennis racquet from 
+								the major racquet brands, and could even be applied to many other sports as well in the future. Throughout
+								the process I have learned basic circuit analysis, PCB Design, and power management.</p>
 
 								<span class="section-badge">Results &amp; Progress</span>
 								<h4>Where It Stands &amp; Where It's Going</h4>
-								<p>[Describe current state, what's working, and what's next.]</p>
+								<p> Many of the design choices were constrained by physical space, such as the limited amount of space to place the batteries, PCB, and heating unit. 
+									Exact design choices and specifications for the heating unit are private at the moment. This section will be updated when it is fully finished
+									or sold as a product.
+									I used KiCAD to design a simple PCB connecting the heating unit to batteries, a switch, a charging unit, and the heating unit. Additionally, I had it manufactured through
+									JLCPCB and have validated it myself. Next steps include creating a casing for the pcb, further improving space efficiency, and
+									receiving feedback from other recreational tennis players and product managers.
+								</p>
 								<div class="inline-gallery">
 									<figure>
 										<div class="project-img-placeholder">
