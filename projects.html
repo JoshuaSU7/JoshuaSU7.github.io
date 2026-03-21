@@ -114,38 +114,105 @@
 			}
 			.project-links a:hover { opacity: 1; }
 
-			/* Featured project (full-width spotlight) */
-			.project-spotlight {
-				display: flex;
-				gap: 2.5em;
-				align-items: flex-start;
-				flex-wrap: wrap;
-				margin-bottom: 3em;
+			/* ── Full project block (featured + secondary) ── */
+			.project-block {
+				margin-bottom: 4em;
 				background: rgba(255,255,255,0.03);
 				border: 1px solid rgba(255,255,255,0.1);
 				border-radius: 10px;
 				overflow: hidden;
 			}
-			.project-spotlight .spotlight-img {
+
+			/* Header row: image + title/tags */
+			.project-block-header {
+				display: flex;
+				gap: 2.5em;
+				align-items: flex-start;
+				flex-wrap: wrap;
+			}
+			.project-block-header .block-img {
 				flex: 0 0 380px;
 				max-width: 100%;
 			}
-			.project-spotlight .spotlight-img img {
+			.project-block-header .block-img img {
 				width: 100%;
 				height: 280px;
 				object-fit: cover;
 				display: block;
 			}
-			.project-spotlight .spotlight-img .project-img-placeholder {
+			.project-block-header .block-img .project-img-placeholder {
 				height: 280px;
 			}
-			.project-spotlight .spotlight-body {
+			.project-block-header .block-title {
 				flex: 1;
 				min-width: 240px;
 				padding: 2em 2em 2em 0;
 			}
 			@media (max-width: 640px) {
-				.project-spotlight .spotlight-body { padding: 1.5em; }
+				.project-block-header .block-title { padding: 1.5em; }
+				.project-block-header .block-img { flex: 0 0 100%; }
+			}
+
+			/* Subsections inside the block */
+			.project-block-body {
+				padding: 0 2em 2em 2em;
+				border-top: 1px solid rgba(255,255,255,0.07);
+			}
+
+			/* Section badge */
+			.section-badge {
+				display: inline-block;
+				background: rgba(255,255,255,0.1);
+				border: 1px solid rgba(255,255,255,0.2);
+				border-radius: 4px;
+				padding: 0.2em 0.8em;
+				font-size: 0.75em;
+				text-transform: uppercase;
+				letter-spacing: 0.12em;
+				margin-bottom: 0.5em;
+				margin-top: 1.8em;
+			}
+
+			.project-block-body h4 {
+				margin: 0.3em 0 0.6em 0;
+				font-size: 1em;
+			}
+			.project-block-body p {
+				font-size: 0.92em;
+				opacity: 0.82;
+				line-height: 1.7;
+				margin-bottom: 0.8em;
+			}
+
+			/* Image gallery inside body */
+			.inline-gallery {
+				display: flex;
+				gap: 1em;
+				flex-wrap: wrap;
+				margin: 1em 0;
+			}
+			.inline-gallery figure {
+				margin: 0;
+				flex: 1;
+				min-width: 200px;
+				background: rgba(0,0,0,0.2);
+				border: 1px solid rgba(255,255,255,0.08);
+				border-radius: 6px;
+				overflow: hidden;
+			}
+			.inline-gallery figure img {
+				width: 100%;
+				height: 160px;
+				object-fit: cover;
+				display: block;
+			}
+			.inline-gallery figure .project-img-placeholder {
+				height: 160px;
+			}
+			.inline-gallery figcaption {
+				padding: 0.5em 0.8em;
+				font-size: 0.8em;
+				opacity: 0.6;
 			}
 		</style>
 	</head>
@@ -185,119 +252,223 @@
 				<section class="wrapper style5">
 					<div class="inner">
 
-						<p>
-							Here's a collection of projects I've worked on outside of class.
-						</p>
+						<p>Here's a collection of projects I've worked on outside of class.</p>
 
 						<!-- ══════════════════════════════════════
-						     FEATURED PROJECT (spotlight layout)
+						     FEATURED PROJECT
 						     ══════════════════════════════════════ -->
 						<h3>Featured Project</h3>
 
-						<div class="project-spotlight">
-							<div class="spotlight-img">
-								<!--
-									Replace the placeholder below with:
-									<img src="images/project-featured.jpg" alt="Featured project screenshot" />
-								-->
-								<div class="project-img-placeholder">
-									<span class="icon solid fa-image"></span>
-									<span>Add image: images/project-featured.jpg</span>
+						<div class="project-block">
+
+							<!-- Header: image + title -->
+							<div class="project-block-header">
+								<div class="block-img">
+									<!-- Replace with: <img src="images/project-featured.jpg" alt="EOG project" /> -->
+									<div class="project-img-placeholder">
+										<span class="icon solid fa-image"></span>
+										<span>images/project-featured.jpg</span>
+									</div>
+								</div>
+								<div class="block-title">
+									<div class="tag-list">
+										<span class="tag">Python</span>
+										<span class="tag">Arduino</span>
+										<span class="tag">Signal Processing</span>
+										<span class="tag">Real-time Analysis</span>
+									</div>
+									<h3 style="margin: 0.6em 0 0.5em 0;">Electrooculography-Based Eye Tracking and Blink Detection for Mouse Control</h3>
+									<div class="project-links">
+										<a href="#" class="button primary icon brands fa-github">View on GitHub</a>
+										<a href="#" class="button icon solid fa-external-link-alt">Live Demo</a>
+									</div>
 								</div>
 							</div>
-							<div class="spotlight-body">
-								<div class="tag-list">
-									<span class="tag">Python, Arduino</span>
-									<span class="tag">Signal Processing, Real-time Analysis</span>
-								</div>
-								<h3 style="margin: 0.5em 0 0.4em 0;">Electrooculography-based eye tracking and blink detection for mouse control</h3>
+
+							<!-- Subsections -->
+							<div class="project-block-body">
+
+								<span class="section-badge">Overview</span>
+								<h4>What Is This Project?</h4>
 								<p>
 									What if you could control a mouse using only your eyes? For most, this might simply seem like a cool gimmick;
-									however, for individuals with locked-in syndrome (a type of paralysis in which individuals can only move their eyes),
+									however, for individuals with locked-in syndrome — a type of paralysis in which individuals can only move their eyes —
 									it is a necessity to restore human-computer interaction and communication. Electrooculography (EOG) extracts electrical
 									signals from the eyes during eye movement or blinking, and thus can be used for eye tracking and blink detection.
 								</p>
-								<div class="project-links" style="margin-top: 1.2em;">
-									<a href="#" class="button primary icon brands fa-github">View on GitHub</a>
-									<a href="#" class="button icon solid fa-external-link-alt">Live Demo</a>
+
+								<span class="section-badge">Methodology</span>
+								<h4>Initial Steps &amp; Approach</h4>
+								<p>
+									[Describe how you started the project — hardware setup, electrode placement, initial signal acquisition, etc.]
+								</p>
+								<p>
+									[Explain the processing pipeline — how raw EOG signals are filtered, thresholded, and translated into cursor movements or blink events.]
+								</p>
+								<!-- Add images of your setup, circuit, or signal traces here -->
+								<div class="inline-gallery">
+									<figure>
+										<!-- Replace with: <img src="images/eog-setup.jpg" alt="Hardware setup" /> -->
+										<div class="project-img-placeholder">
+											<span class="icon solid fa-image"></span>
+											<span>Hardware setup</span>
+										</div>
+										<figcaption>[Caption: electrode placement / hardware setup]</figcaption>
+									</figure>
+									<figure>
+										<!-- Replace with: <img src="images/eog-signal.jpg" alt="Signal trace" /> -->
+										<div class="project-img-placeholder">
+											<span class="icon solid fa-image"></span>
+											<span>Signal trace</span>
+										</div>
+										<figcaption>[Caption: raw vs. filtered EOG signal]</figcaption>
+									</figure>
 								</div>
+
+								<span class="section-badge">Results &amp; Progress</span>
+								<h4>Where It Stands &amp; Where It's Going</h4>
+								<p>
+									[Describe current results — accuracy, latency, reliability of eye tracking and blink detection so far.]
+								</p>
+								<p>
+									[Outline next steps — improvements planned, features to add, or challenges still to solve.]
+								</p>
+								<!-- Add result images/demos here -->
+								<div class="inline-gallery">
+									<figure>
+										<!-- Replace with: <img src="images/eog-results.jpg" alt="Results" /> -->
+										<div class="project-img-placeholder">
+											<span class="icon solid fa-image"></span>
+											<span>Results / demo screenshot</span>
+										</div>
+										<figcaption>[Caption: demo or results]</figcaption>
+									</figure>
+								</div>
+
 							</div>
 						</div>
 
-						<hr />
+						<!-- ══════════════════════════════════════
+						     PROJECT 2
+						     ══════════════════════════════════════ -->
+						<div class="project-block">
+
+							<div class="project-block-header">
+								<div class="block-img">
+									<!-- Replace with: <img src="images/project-2.jpg" alt="Project 2" /> -->
+									<div class="project-img-placeholder">
+										<span class="icon solid fa-image"></span>
+										<span>images/project-2.jpg</span>
+									</div>
+								</div>
+								<div class="block-title">
+									<div class="tag-list">
+										<span class="tag">[Language]</span>
+										<span class="tag">[Tool/Framework]</span>
+									</div>
+									<h3 style="margin: 0.6em 0 0.5em 0;">[Project 2 Title]</h3>
+									<div class="project-links">
+										<a href="#" class="button primary icon brands fa-github">View on GitHub</a>
+										<a href="#" class="button icon solid fa-external-link-alt">Live Demo</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="project-block-body">
+
+								<span class="section-badge">Overview</span>
+								<h4>What Is This Project?</h4>
+								<p>[Describe what this project does and why you built it.]</p>
+
+								<span class="section-badge">Results &amp; Progress</span>
+								<h4>Where It Stands &amp; Where It's Going</h4>
+								<p>[Describe current state, what's working, and what's next.]</p>
+								<div class="inline-gallery">
+									<figure>
+										<div class="project-img-placeholder">
+											<span class="icon solid fa-image"></span>
+											<span>Project 2 image</span>
+										</div>
+										<figcaption>[Caption]</figcaption>
+									</figure>
+									<figure>
+										<div class="project-img-placeholder">
+											<span class="icon solid fa-image"></span>
+											<span>Project 2 image</span>
+										</div>
+										<figcaption>[Caption]</figcaption>
+									</figure>
+								</div>
+
+							</div>
+						</div>
 
 						<!-- ══════════════════════════════════════
-						     PROJECT CARDS GRID
+						     PROJECT 3
 						     ══════════════════════════════════════ -->
-						<h3>All Projects</h3>
+						<div class="project-block">
 
+							<div class="project-block-header">
+								<div class="block-img">
+									<!-- Replace with: <img src="images/project-3.jpg" alt="Project 3" /> -->
+									<div class="project-img-placeholder">
+										<span class="icon solid fa-image"></span>
+										<span>images/project-3.jpg</span>
+									</div>
+								</div>
+								<div class="block-title">
+									<div class="tag-list">
+										<span class="tag">[Language]</span>
+										<span class="tag">[Tool/Framework]</span>
+									</div>
+									<h3 style="margin: 0.6em 0 0.5em 0;">[Project 3 Title]</h3>
+									<div class="project-links">
+										<a href="#" class="button primary icon brands fa-github">View on GitHub</a>
+										<a href="#" class="button icon solid fa-external-link-alt">Live Demo</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="project-block-body">
+
+								<span class="section-badge">Overview</span>
+								<h4>What Is This Project?</h4>
+								<p>[Describe what this project does and why you built it.]</p>
+
+								<span class="section-badge">Results &amp; Progress</span>
+								<h4>Where It Stands &amp; Where It's Going</h4>
+								<p>[Describe current state, what's working, and what's next.]</p>
+								<div class="inline-gallery">
+									<figure>
+										<div class="project-img-placeholder">
+											<span class="icon solid fa-image"></span>
+											<span>Project 3 image</span>
+										</div>
+										<figcaption>[Caption]</figcaption>
+									</figure>
+									<figure>
+										<div class="project-img-placeholder">
+											<span class="icon solid fa-image"></span>
+											<span>Project 3 image</span>
+										</div>
+										<figcaption>[Caption]</figcaption>
+									</figure>
+								</div>
+
+							</div>
+						</div>
+
+						<!--
+							TO ADD MORE PROJECTS: copy a .project-block above and paste it here.
+							For additional smaller projects without full writeups, use the card grid below.
+						-->
+
+						<!-- ══════════════════════════════════════
+						     ADDITIONAL SMALL PROJECT CARDS (optional)
+						     ══════════════════════════════════════ -->
+						<!--
+						<h3>More Projects</h3>
 						<div class="projects-grid">
-
-							<!-- ── Project 1 ── -->
-							<div class="project-card">
-								<!--
-									To add a real image, replace the div.project-img-placeholder with:
-									<img class="project-img" src="images/project-1.jpg" alt="Project 1 screenshot" />
-								-->
-								<div class="project-img-placeholder">
-									<span class="icon solid fa-image"></span>
-									<span>images/project-1.jpg</span>
-								</div>
-								<div class="project-body">
-									<div class="tag-list">
-										<span class="tag">[Language]</span>
-										<span class="tag">[Framework]</span>
-									</div>
-									<h4>[Project 1 Title]</h4>
-									<p>[Short description — what it does, what problem it solves, or what you built it to learn.]</p>
-									<div class="project-links">
-										<a href="#" class="icon brands fa-github"> GitHub</a>
-										<a href="#" class="icon solid fa-external-link-alt"> Demo</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- ── Project 2 ── -->
-							<div class="project-card">
-								<div class="project-img-placeholder">
-									<span class="icon solid fa-image"></span>
-									<span>images/project-2.jpg</span>
-								</div>
-								<div class="project-body">
-									<div class="tag-list">
-										<span class="tag">[Language]</span>
-										<span class="tag">[Framework]</span>
-									</div>
-									<h4>[Project 2 Title]</h4>
-									<p>[Short description — what it does, what problem it solves, or what you built it to learn.]</p>
-									<div class="project-links">
-										<a href="#" class="icon brands fa-github"> GitHub</a>
-										<a href="#" class="icon solid fa-external-link-alt"> Demo</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- ── Project 3 ── -->
-							<div class="project-card">
-								<div class="project-img-placeholder">
-									<span class="icon solid fa-image"></span>
-									<span>images/project-3.jpg</span>
-								</div>
-								<div class="project-body">
-									<div class="tag-list">
-										<span class="tag">[Language]</span>
-										<span class="tag">[Category]</span>
-									</div>
-									<h4>[Project 3 Title]</h4>
-									<p>[Short description — what it does, what problem it solves, or what you built it to learn.]</p>
-									<div class="project-links">
-										<a href="#" class="icon brands fa-github"> GitHub</a>
-										<a href="#" class="icon solid fa-external-link-alt"> Demo</a>
-									</div>
-								</div>
-							</div>
-
-							<!-- ── Project 4 ── -->
 							<div class="project-card">
 								<div class="project-img-placeholder">
 									<span class="icon solid fa-image"></span>
@@ -306,34 +477,15 @@
 								<div class="project-body">
 									<div class="tag-list">
 										<span class="tag">[Language]</span>
-										<span class="tag">[Category]</span>
 									</div>
-									<h4>[Project 4 Title]</h4>
-									<p>[Short description — what it does, what problem it solves, or what you built it to learn.]</p>
+									<h4>[Project Title]</h4>
+									<p>[Short description]</p>
 									<div class="project-links">
 										<a href="#" class="icon brands fa-github"> GitHub</a>
-										<a href="#" class="icon solid fa-external-link-alt"> Demo</a>
 									</div>
 								</div>
 							</div>
-
-							<!--
-								TO ADD MORE PROJECTS: copy one of the .project-card blocks above and paste it here.
-								Update the title, description, tags, and links.
-							-->
-
 						</div>
-
-						<!-- ══════════════════════════════════════
-						     TIPS SECTION (hidden by default — for you as a reminder while editing)
-						     ══════════════════════════════════════ -->
-						<!--
-						HOW TO ADD IMAGES:
-						1. Add your image files to the /images folder in the repo.
-						2. Replace each <div class="project-img-placeholder"> with:
-						   <img class="project-img" src="images/your-image.jpg" alt="Description" />
-						3. Use screenshots, mockups, or photos of your work.
-						   Aim for 16:9 or similar aspect ratios for best results.
 						-->
 
 					</div>
@@ -344,8 +496,8 @@
 			<footer id="footer">
 				<ul class="icons">
 					<li><a href="https://github.com/JoshuaSU7" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="mailto:your.email@example.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					<li><a href="https://www.linkedin.com/in/joshua-su-b7b88a281/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="mailto:joshua.su@gatech.edu" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
 					<li>&copy; Joshua Su</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
